@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HakiTracker</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 320px;
+      min-height: 420px;
+      background: #0a0a0f;
+      color: #e8e6f0;
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .logo-name {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #fff;
+    }
+
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: #55efc4;
+      font-weight: 500;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #55efc4;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .current-site {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .site-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #a29bfe;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .session-time {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat-card {
+      padding: 14px 18px;
+      background: #0a0a0f;
+    }
+
+    .stat-value {
+      font-family: 'Space Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+
+    .top-sites {
+      padding: 14px 20px;
+    }
+
+    .top-sites .label {
+      margin-bottom: 10px;
+    }
+
+    .site-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .site-row-name {
+      flex: 1;
+      color: rgba(255,255,255,0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .site-row-bar-wrap {
+      width: 80px;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .site-row-bar {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+    }
+
+    .site-row-time {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    .footer {
+      padding: 12px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .open-dashboard {
+      font-size: 12px;
+      color: #a29bfe;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+
+    .open-dashboard:hover { color: #6c5ce7; }
+
+    .sync-status {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .empty-state {
+      padding: 30px 20px;
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <div class="logo-mark">HS</div>
+      <span class="logo-name">HakiTracker</span>
+    </div>
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      LIVE
+    </div>
+  </div>
+
+  <div class="current-site">
+    <div class="label">Currently on</div>
+    <div class="site-name" id="currentSite">—</div>
+    <div class="session-time" id="sessionTime">0s this session</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" id="todayTime">0m</div>
+      <div class="stat-label">Today's total</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="siteCount">0</div>
+      <div class="stat-label">Sites visited</div>
+    </div>
+  </div>
+
+  <div class="top-sites">
+    <div class="label">Top sites today</div>
+    <div id="topSitesList">
+      <div class="empty-state">No data yet — start browsing!</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="http://localhost:5173" target="_blank" class="open-dashboard">
+      Open Dashboard ↗
+    </a>
+    <div class="sync-status" id="syncStatus">Syncing...</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

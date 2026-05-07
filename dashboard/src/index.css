@@ -1,0 +1,76 @@
+/* HakiTracker — Global Styles */
+
+:root {
+  --bg-base: #070710;
+  --bg-surface: #0e0e1a;
+  --bg-elevated: #141425;
+  --bg-card: #12121e;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-mid: rgba(255, 255, 255, 0.1);
+  
+  --accent: #6c5ce7;
+  --accent-soft: #a29bfe;
+  --accent-glow: rgba(108, 92, 231, 0.15);
+  
+  --green: #00cec9;
+  --amber: #fdcb6e;
+  --coral: #e17055;
+  --pink: #fd79a8;
+  --teal: #55efc4;
+
+  --text-primary: #f0eeff;
+  --text-secondary: rgba(240, 238, 255, 0.5);
+  --text-muted: rgba(240, 238, 255, 0.25);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+[data-theme="light"] {
+  --bg-base: #ffffff;
+  --text-primary: #111111;
+
+  --bg-surface: #f5f5f5;
+--bg-elevated: #ebebeb;
+--bg-card: #ffffff;
+
+--border: rgba(0, 0, 0, 0.08);
+--border-mid: rgba(0, 0, 0, 0.14);
+
+--text-secondary: rgba(0, 0, 0, 0.65);
+--text-muted: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 99px; }
+
+/* Selection */
+::selection { background: rgba(108, 92, 231, 0.3); color: #fff; }
