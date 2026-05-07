@@ -1,7 +1,7 @@
 // HakiTracker - background.js (Service Worker)
 // Tracks active tab time and syncs to backend
 
-const BACKEND_URL = 'http://localhost:3001/api';
+const BACKEND_URL = 'https://hakitrackr-backend.onrender.com/api/api';
 const IDLE_THRESHOLD = 60;  // seconds before marking user as idle
 const MIN_SESSION_MS = 2000; // ignore sessions shorter than 2 seconds
 const MAX_LOCAL_SESSIONS = 500;

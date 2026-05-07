@@ -13,7 +13,7 @@
   ],
 
   "host_permissions": [
-    "http://localhost:3001/*",
+    "https://hakitrackr-backend.onrender.com/api/*",
     "https://*/*",
     "http://*/*"
   ],

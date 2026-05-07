@@ -100,12 +100,12 @@ npm run dev
 
 # You should see:
 # ✓ Connected to MongoDB
-# ✓ Server running at http://localhost:3001
+# ✓ Server running at https://hakitrackr-backend.onrender.com/api
 ```
 
 **Test the backend:**
 ```bash
-curl http://localhost:3001/health
+curl https://hakitrackr-backend.onrender.com/api/health
 # → {"status":"ok","db":"connected"}
 ```
 
@@ -334,7 +334,7 @@ Project demonstrations are available through:
 **Dashboard shows no data?**
 - Browse some websites with the extension installed first
 - Check network tab in browser devtools — is the API call returning data?
-- Try: `curl http://localhost:3001/api/usage/summary`
+- Try: `curl https://hakitrackr-backend.onrender.com/api/api/usage/summary`
 
 **MongoDB connection fails?**
 - Double-check MONGO_URI in .env (no spaces, correct password)
