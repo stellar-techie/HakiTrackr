@@ -13,17 +13,7 @@ const PORT = process.env.PORT || 3001;
 // ─── Middleware ───────────────────────────────────────────────
 
 // CORS: allow extension and React dashboard
-app.use(
-  cors({
-    origin: [
-      'http://localhost:5173', // Vite dev server
-      'http://localhost:3000', // CRA dev server
-      'chrome-extension://*',  // Chrome extension (any ID)
-    ],
-    methods: ['GET', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-  })
-);
+app.use(cors());
 
 app.use(express.json({ limit: '1mb' })); // Limit body size
 
