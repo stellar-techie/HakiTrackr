@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://hakitrackr-backend.onrender.com/api/api',
+  baseURL: 'https://hakitrackr-backend.onrender.com/api',
   timeout: 10000,
 });
 
